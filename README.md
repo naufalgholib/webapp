@@ -1,6 +1,10 @@
 # webapp
 
-Contain ansible playbook for deploy nginx, config nginx, config loadbalancer. Also playbook to deploy kubernetes cluster and manifest kubernetes deployment
+Contain ansible playbook and manifest file
+ 
+kubernetes -  playbook to deploy kubernetes cluster
+nginx - Contain ansible playbook for deploy nginx, config nginx, config loadbalancer.
+manifest - manifest kubernetes deployment
 
 # Catatan , step by step, screenshoot
 
