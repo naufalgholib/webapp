@@ -1,0 +1,14 @@
+[allserver]
+
+na-node1 ansible_hosts=10.20.20.5
+na-node2 ansible_hosts=10.20.20.6
+na-node3 ansible_hosts=10.20.20.7
+
+[loadbalancer]
+
+na-node1 ansible_hosts=10.20.20.5
+
+[backend]
+
+na-node2 ansible_hosts=10.20.20.6
+na-node3 ansible_hosts=10.20.20.7

@@ -1,0 +1,21 @@
+- name: Deploy metallb
+  hosts: masters
+  become: true
+  tasks:
+    - name: Deploy metallb from manifest
+      shell: kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+      args:
+        chdir: $HOME
+
+    - name: Copy metallb config file from local to master
+      copy:
+        src: /root/ansible/kubernetes/files/metallb-config.yaml
+        dest: $HOME/metallb-config.yaml
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Apply metallb config file
+      shell: kubectl apply -f metallb-config.yaml
+      args:
+        chdir: $HOME

@@ -1,0 +1,22 @@
+- name: Config node1 as loadbalancer
+  hosts: loadbalancer
+  become: true
+  tasks:
+    - name: Backup current config
+      command: cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+      args:
+        creates: /etc/nginx/sites-available/default.backup
+
+    - name: Replace nginx config on node1
+      template:
+        src: files/nginx_loadbalancer.conf.j2
+        dest: /etc/nginx/sites-available/default
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Restart Nginx
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted

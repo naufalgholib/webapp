@@ -1,0 +1,9 @@
+[masters]
+
+na-k8s-master ansible_hosts=10.20.20.10
+
+[workers]
+
+na-k8s-node1 ansible_hosts=10.20.20.11
+na-k8s-node2 ansible_hosts=10.20.20.12
+na-k8s-node3 ansible_hosts=10.20.20.13

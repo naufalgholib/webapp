@@ -1,0 +1,12 @@
+- name: Install Nginx
+  hosts: allserver
+  become: true
+  tasks:
+    - name: Update apt package
+      apt:
+        update_cache: true
+
+    - name: Install Nginx 1.18.0
+      apt:
+        name: nginx=1.18.0-6ubuntu14.4
+        state: present

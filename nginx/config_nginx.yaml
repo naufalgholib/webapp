@@ -1,0 +1,23 @@
+- name: Configure Nginx
+  hosts: backend
+  become: true
+  tasks:
+    - name: Backup current index.html
+      command: cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.backup
+      args:
+        creates: /var/www/html/index.nginx-debian.html.backup
+
+    - name: Change index.html
+      copy:
+        content: "served from: {{ inventory_hostname }}"
+        dest: /var/www/html/index.nginx-debian.html
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
