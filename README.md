@@ -8,4 +8,4 @@ manifest - manifest kubernetes deployment
 
 # Catatan , step by step, screenshoot
 
-Kindly check this file .. 
+Kindly check this file https://drive.google.com/file/d/15VlLLrmKVPtKuQCbANKEQysThHgYfFle/view?usp=sharing
